@@ -19,8 +19,10 @@ typedef struct {
 } Board;
 
 //Funções 
-Board* create_board(int rows , int cols) ; // Retorna o ponteiro Board diretamente
-void initialize_board(Board *board);
-void destroy_board(Board *board) ; 
-bool valid_position(Board *board , int cols , int rows) ; 
+Board* create_board(int rows , int cols) ; // CRIA O TABULEIRO
+void initialize_board(Board *board); // INICIALIZA O TABULEIRO 
+void destroy_board(Board *board) ; // DESTROI O TABULEIRO
+bool valid_position(Board *board , int cols , int rows) ; // VALIDA A POSICAO 
+void display_board(Board , bool show_ships);  // MOSTRA O TABULEIRO 
+void get_Cell() // PEGA A CELULAR
 #endif

@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include "board.h"
 
-// CRIAR TABULEIRO - REQUISITO 1
+//CRIAR TABULEIRO - REQUISITO 1// 
+// BOARD - STRUCT E board - PONTEIRO
    Board* create_board(int rows , int cols){
         if (rows < 6 || rows > 26 && cols < 6 || cols > 26){
             printf("Dimesões invalidas") ; 
@@ -30,10 +31,69 @@
         printf("Erro de Memoria") ; 
         free(board)
         return NULL ;
-   }
-   
-//
-    
+   } 
+//----------------------------//
+
+// REQUSITO 2 - INICIALIZAR TABULEIRO 
+   initialize_board(board); 
+
+   return board ; 
+// REQUSITO 3 - EXIBIR TABULEIRO
+
+void display_board(Board , bool show_ships ){
+    if (board == NULL ||board -> cells ){
+        printf("Tabuleiro não Inicializar");
+    }
+}
+
+
+// Imprimir letras das colunas
+printf(" ") ; 
+for (int col = 0 ; col < board <- col ; col++){
+    printf("%c", 'A' + col) ; 
+} 
+printf("\n"); 
+
+// Imprimir numeros em linhas 
+for (int row = 0 ; row < board <- row ; row++ ){
+    printf("%2d", col + 1) ; 
+
+    for (int col = 0 ; col < board <- col ; col++){
+        Cell *cell = get_Cell(board , row , col); 
+
+        char simbolo ;
+        switch(cell-> state){
+            case CELL_WATER:
+                simbolo = '~' ; 
+                break ; 
+            case CELL_HIT:
+                simbolo = 'x' ; 
+                break ;
+            case CELL_SHIP:
+                if(show_ship){
+                    simbolo = 'N' ; 
+                }
+                else {
+                    simbolo = '~' ;
+                } 
+            case CELL_MISS:
+                simbolo = '*' ;
+                break ; 
+            default:
+                simbolo = '?' ; 
+                break ;
+        }
+        printf("%c", simbolo); 
+    }
+    printf("\n") ;
+} 
+
+// Mostra Navios 
+
+
+// Navios do Oponente 
+
+
 
 
 
