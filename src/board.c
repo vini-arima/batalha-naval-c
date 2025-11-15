@@ -4,13 +4,13 @@
 #include "board.h"
 
 //CRIAR TABULEIRO - REQUISITO 1// 
-// BOARD - STRUCT E board - PONTEIRO
+// BOARD - STRUCT E BOARD* - RETORNA PONTEIRO PARA A STRUCT BOARD
    Board* create_board(int rows , int cols){
         if (rows < 6 || rows > 26 && cols < 6 || cols > 26){
             printf("Dimesões invalidas") ; 
             return NULL ;
         }
-        else if (rows <= 0 && cols <= 0){
+        else if (rows == 0 && cols == 0){
             printf("Dimesões invalidas") ; 
             return NULL ;
         }
