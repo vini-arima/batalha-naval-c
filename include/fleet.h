@@ -4,10 +4,11 @@
 typedef enum {ORIENT_H , ORIENT_V} Orienta ; 
 
 typedef struct {
-    char name[20];
-    int length;
-    int hits;
-    int placed;
+    char name[20]; // NOME
+    int length; // TAMANHO
+    int hits; // ACERTO
+    int placed; // POSICAO
+    bool sunk ; // STATUS DE AFUNDA OU NÃO 
 } Ship ;
 
 typedef struct{
@@ -26,7 +27,7 @@ typedef enum {
 
 void inicialize_fleet() ; 
 int place_ship() ;
-void check_ship() ;
+bool check_ship() ;
 void check_all_ship() ; 
 void free_ship() ;
 
