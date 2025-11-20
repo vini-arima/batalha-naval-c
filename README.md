@@ -1,19 +1,4 @@
-# Batalha Naval - C
-
-Batalha Naval utilizando exclusivamente as bibliotecas básicas da linguagem C. O projeto deve
-demonstrar o domínio de conceitos de Structs, Ponteiros, Alocação Dinâmica de
-Memória (malloc e realloc) e os fluxos básicos de controle.
-
-## Regras do Jogo 
-• Tabuleiro padrão de 10x10 posições (configurável entre 6 e 26). \
-• Frota mínima: 
-– 1 Porta-aviões (5 células) \
-– 1 Encouraçado (4 células) \
-– 2 Cruzadores (3 células) \
-– 2 Destroyers (2 células)
- 
-• Cada jogador posiciona seus navios manualmente ou de forma automática (aleatória).
-• Os jogadores se alternam realizando disparos, informando coordenadas como “B5”.
-• O jogo termina quando todos os navios de um jogador forem afundados.
-
-## Estrutura do Projeto
+🚢 Batalha Naval (C)Projeto da disciplina PIFSI 2025.2 (CESAR School).Professor: João Victor Tinoco📋 SobreImplementação do jogo Batalha Naval em C, via linha de comando (CLI). O projeto demonstra o uso de alocação dinâmica, structs, ponteiros e modularização sem uso de bibliotecas externas.👥 EquipeAlunoEmailResponsabilidadesGabriel Tenóriogtlt@cesar.schoolInterface (IO), Aleatoriedade (RND), Documentação.Vinícius Cardosovca4@cesar.schoolLógica (Game), Tabuleiro (Board), Frota (Fleet), Main, Makefile.🛠️ TecnologiasLinguagem: C (Standard Libraries apenas: stdio, stdlib, string, time, ctype, stdbool).Compilação: Makefile (GCC).🚀 Instalação e ExecuçãoCompilar:Bashmake
+Executar:Bash./batalha_naval
+Limpar (Opcional):Bashmake clean
+🎮 Como JogarConfiguração: Defina o tamanho do tabuleiro (6x6 a 26x26) 1 e insira os apelidos dos jogadores.Posicionamento: Escolha entre posicionamento (M)anual ou (A)utomático para sua frota.Combate:Insira coordenadas de tiro (ex: B5, A1)2.O jogo indica: ÁGUA, ACERTOU ou AFUNDOU.Vitória: Vence quem afundar toda a frota adversária primeiro.⚓ A Frota 31x Porta-aviões (5 células)1x Encouraçado (4 células)2x Cruzadores (3 células)2x Destroyers (2 células)🏗️ Estrutura e Decisões de DesignO código foi modularizado para separar responsabilidades e facilitar a manutenção:main.c / game: Gerencia o loop principal, turnos e checagem de vitória4444.board: Controla a matriz do tabuleiro usando alocação dinâmica (malloc/free) para suportar tamanhos variáveis5.fleet: Gerencia os navios (struct Ship) e o estado da frota (struct Fleet)6.io: Centraliza printf e scanf, validando entradas do usuário e exibindo a matriz7.rnd: Gera coordenadas aleatórias para o posicionamento automático da frota8.
