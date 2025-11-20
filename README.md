@@ -1,70 +1,124 @@
-🚢 Batalha Naval (C)
+# 🚢 Batalha Naval (C)
 
-Projeto da disciplina PIFSI 2025.2 (CESAR School)
-Professor: João Victor Tinoco
+![Language](https://img.shields.io/badge/language-C-blue)
+![Course](https://img.shields.io/badge/course-PIFSI%202025.2-orange)
+![Status](https://img.shields.io/badge/status-completed-brightgreen)
 
-📋 Sobre o Projeto
+> Projeto da disciplina **Programação de Inovação e Fundamentos de Sistemas de Informação** (PIFSI 2025.2) da **CESAR School**.
 
-Implementação do clássico Batalha Naval em C com interface CLI, destacando:
+## 📋 Sobre o Projeto
 
-Alocação dinâmica de memória
+Este projeto consiste na implementação do clássico jogo **Batalha Naval** (Battleship) via interface de linha de comando (CLI).
 
-Uso de structs e ponteiros
+O objetivo pedagógico foi consolidar os fundamentos da programação estruturada em C, com ênfase estrita em:
+* **Alocação Dinâmica de Memória** (`malloc`, `calloc`, `realloc`, `free`).
+* **Estruturas de Dados** (`structs`, `enums`).
+* **Ponteiros** e manipulação de endereços.
+* **Modularização** e design de código sem o uso de bibliotecas externas.
 
-Modularização
+---
 
-Lógica de jogo sem bibliotecas externas
+## 👥 Equipe
 
-👥 Equipe
-Aluno	Email	Responsabilidades
-Gabriel Tenório	gtlt@cesar.school
-	Interface (io), Aleatoriedade (rnd), Documentação
-Vinícius Cardoso	vca4@cesar.school
-	Lógica (game), Tabuleiro (board), Frota (fleet), main e Makefile
-🛠️ Tecnologias
+| Aluno | Email | Responsabilidades (Módulos) |
+| :--- | :--- | :--- |
+| **Gabriel Tenório** | gtlt@cesar.school | • **IO** (Interface/Menus)<br>• **RND** (Aleatoriedade)<br>• **Docs** (Documentação) |
+| **Vinícius Cardoso** | vca4@cesar.school | • **Game** (Lógica/Turnos)<br>• **Board** (Matriz Dinâmica)<br>• **Fleet** (Navios)<br>• **Main** & **Makefile** |
 
-Linguagem: C (C99+)
+---
 
-Bibliotecas: stdio.h, stdlib.h, string.h, time.h, ctype.h, stdbool.h
+## 🛠️ Tecnologias
 
-Build: GNU Make
+* **Linguagem:** C (Standard C99)
+* **Build System:** GNU Make
+* **Bibliotecas:** Apenas bibliotecas padrão (`stdio.h`, `stdlib.h`, `string.h`, `time.h`, `ctype.h`, `stdbool.h`).
 
-🚀 Execução
+---
+
+## 🚀 Instalação e Execução
+
+Certifique-se de ter o compilador `gcc` e o utilitário `make` instalados em seu ambiente.
+
+### 1. Clonar e Compilar
+
+```bash
+# Clone o repositório
+git clone <URL_DO_SEU_REPOSITORIO>
+
+# Entre na pasta
+cd batalha_naval
+
+# Compile o projeto usando o Makefile
 make
+```
+
+### 2. Executar
+
+```bash
 ./batalha_naval
+```
 
-make clean   # opcional
+### 3. Limpar (Opcional)
 
-🎮 Resumo do Jogo
+Para remover os arquivos objetos (`.o`) e o executável gerado:
 
-Jogadores definem apelidos e tamanho do tabuleiro
+```bash
+make clean
+```
 
-Posicionamento da frota: manual ou automático
+---
 
-Turnos alternados informando coordenadas de ataque
+## 🎮 Como Jogar
 
-Vence quem afundar todos os navios do oponente
+O jogo segue as regras clássicas de batalha naval, adaptadas para o terminal.
 
-⚓ Frota
+1.  **Configuração Inicial:**
+    * Selecione **"Novo Jogo"**.
+    * Insira os **apelidos** dos dois jogadores.
+    * Defina o **tamanho do tabuleiro** (mínimo 6x6, máximo 26x26).
 
-1 Porta-aviões (5 células)
+2.  **Posicionamento da Frota:**
+    * Cada jogador deve posicionar seus navios.
+    * **Modo Manual:** O jogador digita a coordenada e orientação (Horizontal/Vertical).
+    * **Modo Automático:** O computador distribui os navios aleatoriamente.
 
-1 Encouraçado (4 células)
+3.  **O Combate:**
+    * Os jogadores alternam turnos tentando acertar os navios inimigos.
+    * Digite a coordenada do tiro (ex: `A5`, `B10`).
+    * O feedback é imediato: **ÁGUA 🌊**, **ACERTOU 💥** ou **AFUNDOU ☠️**.
 
-2 Cruzadores (3 células)
+4.  **Vitória:**
+    * Vence quem afundar **todos** os navios da frota adversária primeiro.
 
-2 Destroyers (2 células)
+### ⚓ A Frota (Por Jogador)
 
-🏗️ Estrutura do Código
+| Qtd | Navio | Tamanho |
+| :---: | :--- | :---: |
+| 1 | **Porta-aviões** | 5 células |
+| 1 | **Encouraçado** | 4 células |
+| 2 | **Cruzadores** | 3 células |
+| 2 | **Destroyers** | 2 células |
 
-main.c — entrada do programa
+---
 
-game.h/c — fluxo da partida
+## 🏗️ Estrutura do Projeto
 
-board.h/c — gerenciamento do tabuleiro
+A arquitetura foi pensada para separar a interface do usuário da lógica de negócios e gerenciamento de memória.
 
-fleet.h/c — definição e estado dos navios
+```text
+.
+├── Makefile          # Script de automação de compilação
+├── README.md         # Documentação do projeto
+├── src
+│   ├── main.c        # Ponto de entrada (Entry point)
+│   ├── game.c/h      # Controle de fluxo, turnos e regras de vitória
+│   ├── board.c/h     # Gerenciamento da matriz e validação de limites
+│   ├── fleet.c/h     # Definição de navios e frota
+│   ├── io.c/h        # Entrada/Saída (printf/scanf centralizados)
+│   └── rnd.c/h       # Gerador de números aleatórios (Wrapper)
+```
 
-io.h/c — entrada/saída
+---
 
-rnd.h/c — posicionamento aleatório
+**Professor:** João Victor Tinoco  
+**Instituição:** CESAR School
