@@ -1,4 +1,70 @@
-🚢 Batalha Naval (C)Projeto da disciplina PIFSI 2025.2 (CESAR School).Professor: João Victor Tinoco📋 SobreImplementação do jogo Batalha Naval em C, via linha de comando (CLI). O projeto demonstra o uso de alocação dinâmica, structs, ponteiros e modularização sem uso de bibliotecas externas.👥 EquipeAlunoEmailResponsabilidadesGabriel Tenóriogtlt@cesar.schoolInterface (IO), Aleatoriedade (RND), Documentação.Vinícius Cardosovca4@cesar.schoolLógica (Game), Tabuleiro (Board), Frota (Fleet), Main, Makefile.🛠️ TecnologiasLinguagem: C (Standard Libraries apenas: stdio, stdlib, string, time, ctype, stdbool).Compilação: Makefile (GCC).🚀 Instalação e ExecuçãoCompilar:Bashmake
-Executar:Bash./batalha_naval
-Limpar (Opcional):Bashmake clean
-🎮 Como JogarConfiguração: Defina o tamanho do tabuleiro (6x6 a 26x26) 1 e insira os apelidos dos jogadores.Posicionamento: Escolha entre posicionamento (M)anual ou (A)utomático para sua frota.Combate:Insira coordenadas de tiro (ex: B5, A1)2.O jogo indica: ÁGUA, ACERTOU ou AFUNDOU.Vitória: Vence quem afundar toda a frota adversária primeiro.⚓ A Frota 31x Porta-aviões (5 células)1x Encouraçado (4 células)2x Cruzadores (3 células)2x Destroyers (2 células)🏗️ Estrutura e Decisões de DesignO código foi modularizado para separar responsabilidades e facilitar a manutenção:main.c / game: Gerencia o loop principal, turnos e checagem de vitória4444.board: Controla a matriz do tabuleiro usando alocação dinâmica (malloc/free) para suportar tamanhos variáveis5.fleet: Gerencia os navios (struct Ship) e o estado da frota (struct Fleet)6.io: Centraliza printf e scanf, validando entradas do usuário e exibindo a matriz7.rnd: Gera coordenadas aleatórias para o posicionamento automático da frota8.
+🚢 Batalha Naval (C)
+
+Projeto da disciplina PIFSI 2025.2 (CESAR School)
+Professor: João Victor Tinoco
+
+📋 Sobre o Projeto
+
+Implementação do clássico Batalha Naval em C com interface CLI, destacando:
+
+Alocação dinâmica de memória
+
+Uso de structs e ponteiros
+
+Modularização
+
+Lógica de jogo sem bibliotecas externas
+
+👥 Equipe
+Aluno	Email	Responsabilidades
+Gabriel Tenório	gtlt@cesar.school
+	Interface (io), Aleatoriedade (rnd), Documentação
+Vinícius Cardoso	vca4@cesar.school
+	Lógica (game), Tabuleiro (board), Frota (fleet), main e Makefile
+🛠️ Tecnologias
+
+Linguagem: C (C99+)
+
+Bibliotecas: stdio.h, stdlib.h, string.h, time.h, ctype.h, stdbool.h
+
+Build: GNU Make
+
+🚀 Execução
+make
+./batalha_naval
+
+make clean   # opcional
+
+🎮 Resumo do Jogo
+
+Jogadores definem apelidos e tamanho do tabuleiro
+
+Posicionamento da frota: manual ou automático
+
+Turnos alternados informando coordenadas de ataque
+
+Vence quem afundar todos os navios do oponente
+
+⚓ Frota
+
+1 Porta-aviões (5 células)
+
+1 Encouraçado (4 células)
+
+2 Cruzadores (3 células)
+
+2 Destroyers (2 células)
+
+🏗️ Estrutura do Código
+
+main.c — entrada do programa
+
+game.h/c — fluxo da partida
+
+board.h/c — gerenciamento do tabuleiro
+
+fleet.h/c — definição e estado dos navios
+
+io.h/c — entrada/saída
+
+rnd.h/c — posicionamento aleatório
